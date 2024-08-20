@@ -4,7 +4,7 @@ from os import getenv
 app = Flask(__name__)
 
 @app.route('/')
-def home():
+def homer():
     return render_template('index2.html')
     
 if __name__ == '__main__':
