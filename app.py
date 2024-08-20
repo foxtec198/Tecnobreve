@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/rinele')
 def home():
-    return 'Teste'
+    return render_template('index.html')
     
 if __name__ == '__main__':
     port = int(getenv('PORT','3605'))
