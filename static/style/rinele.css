@@ -90,3 +90,13 @@ body p{
     top: 10px;
     left: 15px;
 }
+.redesSociais{
+    font-size: 35px;
+    color: #fff;
+}
+.dvRd{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
+}
