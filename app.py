@@ -6,6 +6,13 @@ import smtplib
 
 app = Flask(__name__)
 
+# HOME - TECNOBREVE ===============================================================
+@app.route('/')
+def home():
+    return render_template('index.html')
+# ====================================================================================
+
+
 # RINELE - PSICOLOGA ===============================================================
 def enviar_email(nome, telefone, emailTo, dataEnvio = dt.now()):
     # PARAMETROS DE EMAIL
@@ -52,7 +59,7 @@ def enviar_email(nome, telefone, emailTo, dataEnvio = dt.now()):
     server.quit()
     print(f'Email enviado com sucesso para {emailTo}')
 
-@app.route('/rinele')
+@app.route('/rinele/')
 def rinele():
     return render_template('rinele.html')
 
@@ -65,4 +72,4 @@ def enviar(nome, telefone):
 
 if __name__ == '__main__':
     port = getenv('PORT','8601')
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
