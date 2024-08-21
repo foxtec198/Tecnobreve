@@ -1,13 +1,15 @@
 from flask import Flask, render_template
 from os import getenv
+from datetime import datetime as dt
+import email.message as em
+import smtplib
 
 app = Flask(__name__)
 
 # RINELE - PSICOLOGA ===============================================================
 def enviar_email(nome, telefone, emailTo, dataEnvio = dt.now()):
     # PARAMETROS DE EMAIL
-    html = f"""
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    html = f"""<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <div style="background-color: #006494; padding: 10px; border-radius: 20px; margin: 20px;">
         <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/logoWhite.png?alt=media&token=3d861237-d85f-4c14-83bd-4138f973ecea" width="100" style="margin-left: 10px;">
