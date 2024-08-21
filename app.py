@@ -10,7 +10,7 @@ app = Flask(__name__)
 # HOME - TECNOBREVE ===============================================================
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return redirect('https://tecnobreve.my.canva.site/portifolio')
 # =================================================================================
 
 # RINELE - PSICOLOGA ==============================================================
