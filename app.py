@@ -54,7 +54,7 @@ def enviar_email(nome, telefone, emailTo, dataEnvio = dt.now()):
 
 @app.route('/rinele')
 def rinele():
-    return render_template('index.html')
+    return render_template('rinele.html')
 
 @app.route('/enviar/<nome>_<telefone>')
 def enviar(nome, telefone):
