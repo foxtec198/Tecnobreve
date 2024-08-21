@@ -35,8 +35,6 @@ body h1, h2{
 body p{
     font-family: 'Montserrat';
 }
-
-
 .title{
     display: flex;
     flex-direction: column;
@@ -45,7 +43,7 @@ body p{
     text-align: center;
     background-color: #13293d;
     height: 650px;
-    opacity: 35%;
+    opacity: 60%;
 }
 .title h1{
     font-size: 65px;
@@ -62,7 +60,12 @@ body p{
     color: var(--fg1);
 }
 .infos p{
-    font-size: 25px;
+    font-size: 20px;
+    margin: auto;
+}
+.txtA{
+    padding-left: 10%;
+    padding-right: 10%;
 }
 .infos{
     display: flex;

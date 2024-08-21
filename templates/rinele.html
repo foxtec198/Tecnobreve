@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../static/src/icon/icon.png">
-    <title>Rinele Mazaquatro | Psicologa</title>
+    <title>Rinele Mazaquatro | Psicóloga</title>
 </head>
 <body style="background-color: #006494; color:#fff">
     <!-- Modal -->
@@ -16,11 +16,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="titleM">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="titleM" style="color: #000;"> Titulo </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p id="contM">.</p>
+                    <p id="contM" class="modal-cont" style="color: #000;">.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -28,18 +28,20 @@
             </div>
         </div>
     </div>
-
-
+    
+    <!--Conteiner  -->
     <div class="conteiner">
         <div class="title">
             <img src="../static/src/icon/logoWhite.png" width="100" class="lg">
-            <p>Psicologa</p>
+            <p>Psicóloga</p>
             <h1>Rinele</h1>
             <h2>Mazaquatro</h2>
         </div>
         <div class="infos">
-            <h1 class="text-break" style="text-align: justify;"><b>Vamos falar sobre o que realmente importa?</b></h1>
-            <p class="text-break" style="text-align: justify;">Tenha um espaço seguro para compartilhar seus sentimentos, traumas e sonhos!</p>
+            <h1 class="text-break">Vamos falar sobre o que realmente <b>importa?</b></h1>
+            <div class="txtA">
+                <p class="text-break">Tenha um espaço seguro para compartilhar seus sentimentos, traumas e sonhos!</p>
+            </div>
             <button type="button" class="btn btn-success btn-lg" id="btnWhats">
                 <i class="bi bi-whatsapp"></i>
                 Entre em contato comigo!
@@ -65,19 +67,20 @@
             </div>
         </div>
     </div>
+
+    <!-- Functions -->
     <script>
         document.getElementById('btnWhats').onclick = function(){
-            // document.location = 'https://wa.me/554388080802'
-            document.location = 'https://wa.me/5543988080802?text=Ol%C3%A1,%20Vim%20pela%20p%C3%A1gina%20de%20captura.%20'
+            document.location = 'https://wa.me/554388080802'
         }
 
         document.getElementById('btnEmail').onclick = function() {
             var nome = document.getElementById('floatingInput').value
             var telefone = document.getElementById('floatingInput2').value
             try{
-                document.getElementById('titleM').textContent = 'Enviado com Sucesso'
+                document.querySelector('.modal-title').textContent = 'Enviado com Sucesso'
                 document.getElementById('contM').textContent = 'Dados enviados com sucesso, aguarde o contato de nossa equipe!'
-                document.location = '/enviar/' + nome + '_' + telefone
+                document.location = '/rinele/enviar/' + nome + '_' + telefone
             }catch{
                 document.getElementById('titleM').textContent = 'Erro ao enviar'
                 document.getElementById('contM').textContent = 'Verifique os dados e tente novamente!'
