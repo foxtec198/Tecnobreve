@@ -58,6 +58,7 @@ body p{
 
 .infos h1, h2, p{
     color: var(--fg1);
+    font-size: 25px;
 }
 .infos p{
     font-size: 20px;
