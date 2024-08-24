@@ -67,6 +67,11 @@ def enviar(nome, telefone):
     enviar_email(nome, telefone, 'psicologarinelemazaquatro@hotmail.com')
     return redirect('/rinele')
 # ==================================================================================
+# IMOB 4Projetta ==============================================================
+
+@app.route('/imob/')
+def homeImob():
+    return render_template('imob.html')
 
 if __name__ == '__main__':
     port = getenv('PORT','8601')
