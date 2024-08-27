@@ -102,7 +102,7 @@ body, html {
 .cont2{
     width: 100%;
     background: var(--azulMedio);
-    height: 800px;
+    height: 900px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -132,4 +132,8 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.txtTM p{
+    padding-left: 20px;
+    padding-right: 20px;
 }
