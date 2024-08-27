@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 
+@font-face {
+    font-family: 'Made';
+    src: url('../fonts/MADE.otf');
+}
+
 body, html {
     --azulClaro: #1898CC;
     --azulMedio: #0F6BA6;
@@ -54,6 +59,12 @@ body, html {
     top: 30%;
     left: 10%;
     color: #fff;
+}
+.banner h1{
+    font-size: 50px;
+}
+.banner p{
+    font-size: 20px;
 }
 .cont1{
     display: flex;
