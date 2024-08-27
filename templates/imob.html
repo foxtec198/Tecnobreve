@@ -29,7 +29,7 @@
             <h1>Imobiliária 4 Quattro Projetta</h1>
             <p>Apresenta um novo empreendimento</p>
             <a href="#apresentando">
-                <button class="btn btn-outline-light btn-lg">Ver mais</button>
+                <button class="btn btn-light btn-lg">Ver mais</button>
             </a>
         </div>
     </div>
@@ -37,17 +37,14 @@
         <div class="cont1" id="apresentando">
             <div class="contText">
                 <div class="txtTM">
-                    <p>
-                        Para você lojista, que procura pelo local ideal para seu negócio.
-                        O <b>Tropical Mall</b> contará com:
-                    </p>
-                    <p> ✔ - Lojas à partir de 50m²</p>
-                    <p> ✔ - 73 Vagas de Estacionamento</p>
-                    <p> ✔ - Diversas Opções Gastronômicas</p>
-                    <p> ✔ - Espaço Kids</p>
-                    <p> ✔ - Espaço Moderno e Completo</p>
+                    <p>Para você lojista, que procura pelo local ideal para seu negócio. O <b>Tropical Mall</b> contará com:</p>
+                    <p> <i class="bi bi-bag-check-fill"></i> - Lojas à partir de 50m²</p>
+                    <p> <i class="bi bi-car-front-fill"></i> - 73 Vagas de Estacionamento</p>
+                    <p> <i class="bi bi-egg-fried"></i> - Diversas Opções Gastronômicas</p>
+                    <p> <i class="bi bi-balloon-fill"></i> - Espaço Kids</p>
+                    <p> <i class="bi bi-cpu-fill"></i> - Espaço Moderno e Completo</p>
                     
-                    <button class="btn btn-outline-dark" id="saibaMais">Saiba mais</button>
+                    <button class="btn btn-outline-dark" id="saibaMais">Saiba mais <i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
 
             </div>
@@ -85,8 +82,8 @@
             </div>
         </div>
         <div class="cont2" id="cont2">
-            <p>Muito bom né? E para garantir seu espaço é muito fácil!
-            Deixe seu contato que o nosso corretor responsável entrará em contato!</p>
+            <p> Este empreendimento promete ser um sucesso em Cambé. Não perca essa oportunidade!
+            Deixe seu contato para agendar uma <b>visita!</b></p>
             <div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nome" placeholder="Meu nome completo" autocomplete="name">
@@ -103,17 +100,17 @@
         </div>
     </div>
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-        <img src="../static/src/icon/fav4quattro.png" class="rounded me-2" alt="..." width="30">
-        <strong class="me-auto">Dados Enviados!</strong>
-        <small>0 min atrás</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="../static/src/icon/fav4quattro.png" class="imgtoast">
+                <strong class="me-auto">Dados Enviados!</strong>
+                <small>0 min atrás</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <p>Olá, Seu contato está sendo enviado! Aguarde que nosso corretor responsavel irá entrar em contato</p>
+            </div>
         </div>
-        <div class="toast-body">
-        Olá, Seu contato está sendo enviado! Aguarde que nosso corretor responsavel irá entrar em contato
-        </div>
-    </div>
     </div>
     <script>
         const toastTrigger = document.getElementById('btnEnviar')
@@ -123,6 +120,7 @@
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
             toastTrigger.addEventListener('click', () => {
                 toastBootstrap.show()
+
                 const nome = document.getElementById('nome').value
                 const telefone = document.getElementById('tel').value
                 document.location = 'enviar/' + nome + '_' + telefone

@@ -67,9 +67,6 @@ body, html {
 .banner p{
     font-size: 20px;
 }
-.contB h1, p{ 
-    /* color: black; */
-}
 .cont1{
     display: flex;
     flex-direction: row;
@@ -101,7 +98,11 @@ body, html {
 }
 .cont2{
     width: 100%;
-    background: var(--azulMedio);
+    background: var(--azulEscuro);
+    /* background-image: url('../src/img/4quattro/semfundo.png'); */
+    /* background-size: 100%; */
+    /* background-position: bottom; */
+    /* background-repeat: no-repeat; */
     height: 900px;
     display: flex;
     flex-direction: column;
@@ -118,8 +119,12 @@ body, html {
     text-align: justify
 }
 .btn1{
-    background: var(--azulEscuro);
+    background: var(--azulMedio);
     color: #fff;
+}
+.btn1:hover, .btn2:hover{
+    background: #fff;
+    color: #000;
 }
 .btn2{
     background: var(--azulClaro);
@@ -132,8 +137,13 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: justify;
 }
 .txtTM p{
     padding-left: 20px;
     padding-right: 20px;
+}
+.imgtoast{
+    height: 20px;
+    width: 20px;
 }
