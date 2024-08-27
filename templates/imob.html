@@ -84,22 +84,47 @@
             <p>Muito bom né? E para garantir seu espaço é muito fácil!</p>
             <p>Deixe seu contato que o nosso corretor responsável entrará em contato!</p>
 
-            <form id="saibaMais">
+            <div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nome" placeholder="Meu nome completo" autocomplete="name">
                     <label for="nome">Nome Completo</label>
                 </div>
                 <div class="form-floating">
-                    <input type="tel" class="form-control" id="tel" placeholder="99999999999">
+                    <input type="tel" class="form-control" id="tel" placeholder="Telefone">
                     <label for="tel">Telefone</label>
                 </div>
                 <hr>
-            </form>
-            <div>
-                <button class="btn btn-lg btn1"><i class="bi bi-envelope-arrow-up-fill"></i> Enviar dados </button>
-                <a href="https://api.whatsapp.com/send?phone=554333264044"> <button class="btn btn-lg btn2"> <i class="bi bi-whatsapp"></i> Entre em contato</button></a>
+                    <button class="btn btn-lg btn1" id="btnEnviar"><i class="bi bi-envelope-arrow-up-fill"></i> Enviar dados </button>
+                    <a href="https://api.whatsapp.com/send?phone=554333264044"> <button class="btn btn-lg btn2"> <i class="bi bi-whatsapp"></i> Entre em contato</button></a>
             </div>
         </div>
     </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+        <img src="../static/src/icon/fav4quattro.png" class="rounded me-2" alt="..." width="30">
+        <strong class="me-auto">Dados Enviados!</strong>
+        <small>0 min atrás</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+        Olá, Seu contato está sendo enviado! Aguarde que nosso corretor responsavel irá entrar em contato
+        </div>
+    </div>
+    </div>
+    <script>
+        const toastTrigger = document.getElementById('btnEnviar')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+                const nome = document.getElementById('nome').value
+                const telefone = document.getElementById('tel').value
+                document.location = 'enviar/' + nome + '_' + telefone
+        })
+        }
+    </script>
 </body>
 </html>

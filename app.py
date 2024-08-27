@@ -69,9 +69,59 @@ def enviar(nome, telefone):
 # ==================================================================================
 # IMOB 4Projetta ==============================================================
 
+def enviar_email_imob(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
+    # PARAMETROS DE EMAIL
+    html = f"""<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <div style="border: 2px solid #006494; padding: 10px; border-radius: 20px; margin: 20px;">
+        <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/marca.png?alt=media&token=8a902127-2005-40aa-9435-6a56be9f011a" width="100" style="margin-left: 10px;">
+    </div>
+    <div style="text-align: left; padding: 10px; margin: 20px;">
+        <h1><b>Novo Lojista!</b></h1>
+        <h4>Você tem um novo lojista a ser atendido!</h4>
+        <hr>
+        <p><b>Nome:</b> {nome}</p>
+        <p><b>Telefone:</b> {telefone}</p>
+        <p><b>Data do Contato:</b> {dataEnvio}</p>
+        <a href="https://api.whatsapp.com/send/?phone={telefone}">
+            <button style="background: #a7c957; color: #fff; font-size: 16px;"> 
+                <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/icons8-whatsapp-50.png?alt=media&token=addb7a5a-9cec-4cd3-907b-20ce5be75295" width= "15">
+                Enviar Mensagem 
+            </button>
+        </a>
+        <hr>
+        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {dt.now().strftime('%Y')} </p>
+    </div>""" 
+
+    host = 'smtp.gmail.com'
+    port = '587'
+    email = 'foxtec198@gmail.com'
+    senha = 'fwmeylchtupgrmeb'
+    server = smtplib.SMTP(host, port)
+    server.ehlo()
+    server.starttls()
+    server.login(email, senha)
+    
+    # EMAIL EM SI
+    msg = em.Message()
+    msg['From'] = email
+    msg['To'] = emailTo
+    msg['Subject'] = 'Novo Lojista!'
+
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(html)
+    server.sendmail(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
+    server.quit()
+   
 @app.route('/imob/')
 def homeImob():
     return render_template('imob.html')
+
+@app.route('/imob/enviar/<nome>_<telefone>')
+def enviar_imob(nome, telefone):
+    enviar_email_imob(nome, telefone, '4quattroprojetta@gmail.com')
+    # enviar_email_imob(nome, telefone, 'ghostlagado@gmail.com')
+    return redirect('/imob')
 
 if __name__ == '__main__':
     port = getenv('PORT','8601')
