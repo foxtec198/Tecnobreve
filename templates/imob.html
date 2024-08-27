@@ -23,7 +23,8 @@
     </div>
 
     <div class="banner">
-        <video src="../static/src/video/2450251-uhd_3840_2160_30fps.mp4" autoplay muted loop ></video>
+        <!-- <video src="../static/src/video/2450251-uhd_3840_2160_30fps.mp4" autoplay muted loop ></video> -->
+        <img src="../static/src/img/4quattro/WhatsApp Image 2023-08-30 at 13.55.44.jpeg">
         <div class="contB">
             <h1>Imobiliária 4 Quattro Projetta</h1>
             <p>Apresenta um novo empreendimento</p>
@@ -35,17 +36,20 @@
     <div class="infos">
         <div class="cont1" id="apresentando">
             <div class="contText">
-                <p>Para você lojista, que procura pelo local ideal para seu negócio.
-                    O <b>Tropical Mall</b> contará com:</p>
+                <p>
+                    Para você lojista, que procura pelo local ideal para seu negócio.
+                    O <b>Tropical Mall</b> contará com:
+                </p>
+                <div class="txtTM">
+                    <p> ✔ - Lojas à partir de 50m²</p>
+                    <p> ✔ - 73 Vagas de Estacionamento</p>
+                    <p> ✔ - Diversas Opções Gastronômicas</p>
+                    <p> ✔ - Espaço Kids</p>
+                    <p> ✔ - Espaço Moderno e Completo</p>
                     
-                <p>Lojas à partir de 50m (Quadrados) colocar o 2 em cima, nao consigo por aqui
-                    73 Vagas de Estacionamento
-                    Diversas Opções Gastronômicas
-                    Espaço Kids
-                    Espaço Moderno e Completo</p>
-                <a href="#saibaMais">
-                    <button class="btn btn-outline-dark">Saiba mais</button>
-                </a>
+                    <button class="btn btn-outline-dark" id="saibaMais">Saiba mais</button>
+                </div>
+
             </div>
             <div class="car">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -80,10 +84,9 @@
                 </div>
             </div>
         </div>
-        <div class="cont2">
-            <p>Muito bom né? E para garantir seu espaço é muito fácil!</p>
-            <p>Deixe seu contato que o nosso corretor responsável entrará em contato!</p>
-
+        <div class="cont2" id="cont2">
+            <p>Muito bom né? E para garantir seu espaço é muito fácil!
+            Deixe seu contato que o nosso corretor responsável entrará em contato!</p>
             <div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nome" placeholder="Meu nome completo" autocomplete="name">
@@ -124,6 +127,9 @@
                 const telefone = document.getElementById('tel').value
                 document.location = 'enviar/' + nome + '_' + telefone
         })
+        }
+        document.getElementById('saibaMais').onclick = function(){
+            document.location = '#cont2'
         }
     </script>
 </body>
