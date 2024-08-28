@@ -147,3 +147,9 @@ body, html {
     height: 20px;
     width: 20px;
 }
+.rdp {
+    background: #fff;
+    padding: 2rem;
+    color: #000;
+    text-align: center;
+}
