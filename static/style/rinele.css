@@ -106,3 +106,6 @@ body p{
     color: gray;
     font-family: sans-serif;
 }
+.copy a{
+    color: gray;
+}
