@@ -4,14 +4,16 @@ from time import strftime as st
 from datetime import datetime as dt
 import email.message as em
 import smtplib
+from psycopg2 import connect
 
 app = Flask(__name__)
+conn = connect(host='stately-allowing-snapper.data-1.use1.tembo.io', port='5432', user='postgres', password='H6KAGLThX39kcNNH', database='RDC')
+c = conn.cursor()
 
 # HOME - TECNOBREVE ===============================================================
 @app.route('/')
 def home():
     return redirect('https://tecnobreve.my.canva.site/portifolio')
-# =================================================================================
 
 # RINELE - PSICOLOGA ==============================================================
 def enviar_email(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
@@ -66,9 +68,81 @@ def rinele():
 def enviar(nome, telefone):
     enviar_email(nome, telefone, 'psicologarinelemazaquatro@hotmail.com')
     return redirect('/rinele')
-# ==================================================================================
-# IMOB 4Projetta ==============================================================
 
+# CHOPP MANIA =====================================================================
+def enviar_email(nomeForm, emailForm, telForm, dataForm, dataEnvio, emailTo, pedido):
+    # PARAMETROS DE EMAIL
+    html = f"""
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <div style="background-color: #000; padding: 10px; border-radius: 20px; margin: 20px;">
+        <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/modoBranco.png?alt=media&token=73957963-b24d-4331-b905-f6905cb3726d" width="100" style="margin-left: 10px;">
+    </div>
+    <div style="text-align: left; padding: 10px; margin: 20px;">
+        <h1>Novo Pedido !</h1>
+        <h4>Você tem um novo pedido a ser realizado!</h4>
+        <hr>
+        <p><b>Pedido:</b> {pedido}</p>
+        <p><b>Nome:</b> {nomeForm}</p>
+        <p><b>Email:</b> {emailForm}</p>
+        <p><b>Telefone:</b> {telForm}</p>
+        <p><b>Data do Evento:</b> {dataForm.strftime('%d/%m/%Y %H:%M')}</p>
+        <p><b>Data do Pedido:</b> {dataEnvio.strftime('%d/%m/%Y %H:%M')}</p>
+        <a href="https://api.whatsapp.com/send/?phone=55{telForm}">
+            <button style="background: #a7c957; color: #fff; font-size: 16px;"> 
+                <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/icons8-whatsapp-50.png?alt=media&token=addb7a5a-9cec-4cd3-907b-20ce5be75295" width= "15">
+                Enviar Mensagem 
+            </button>
+        </a>
+        <hr>
+        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {dt.now().strftime('%Y')} </p>
+    </div>
+    """ 
+    host = 'smtp.gmail.com'
+    port = '587'
+    email = 'foxtec198@gmail.com'
+    senha = 'fwmeylchtupgrmeb'
+    server = smtplib.SMTP(host, port)
+    server.ehlo()
+    server.starttls()
+    server.login(email, senha)
+    
+    # EMAIL EM SI
+    msg = em.Message()
+    msg['From'] = email
+    msg['To'] = emailTo
+    msg['Subject'] = 'Novo Pedido'
+
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(html)
+    server.sendmail(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
+    server.quit()
+    print(f'Email enviado com sucesso para {emailTo}')
+
+def get_brl():
+    c.execute('rollback')
+    c.execute('select tipo, valor from barril')
+    return c.fetchall()
+
+@app.route('/choppmania/')
+def home_cm():
+    barris = sorted(get_brl())
+    return render_template('choppmania.html', barris=barris)
+
+@app.route('/choppmania/enviar/<nome>_<email>_<telefone>_<data>_<produto>')
+def envio_choppmania(nome, email, telefone, data, produto):
+    data = data.replace('T', ' ')
+    data = dt.now().strptime(data, '%Y-%m-%d %H:%M')
+    dataEnvio = dt.now()
+    enviar_email(nome, email, telefone, data, dataEnvio, 'foxtec198@gmail.com', produto)
+    enviar_email(nome, email, telefone, data, dataEnvio, 'contato.choppmania@gmail.com', produto)
+    return redirect('/choppmania/enviado')
+
+@app.route('/choppmania/enviado/')
+def enviado_choppmania():
+    return render_template('enviadochoppmania.html')
+
+# IMOB 4Projetta ==================================================================
 def enviar_email_imob(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     # PARAMETROS DE EMAIL
     html = f"""<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
