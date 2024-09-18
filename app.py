@@ -15,6 +15,10 @@ c = conn.cursor()
 def home():
     return redirect('https://tecnobreve.my.canva.site/portifolio')
 
+@app.route('/rfs')
+def rfs():
+    return render_template('rfs.html')
+
 # RINELE - PSICOLOGA ==============================================================
 def enviar_email(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     # PARAMETROS DE EMAIL
