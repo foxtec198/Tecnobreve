@@ -207,6 +207,13 @@ def enviar_imob(nome, telefone):
     # enviar_email_imob(nome, telefone, 'ghostlagado@gmail.com')
     return redirect('/imob')
 
+# Oficina do Celular ==================================================================
+
+@app.route("/oficinadocelular/")
+def homeODC():
+    return render_template('oficinadocelular.html')
+
+
 if __name__ == '__main__':
     port = getenv('PORT','8601')
     app.run(debug=True, host='0.0.0.0', port=port)
