@@ -23,7 +23,7 @@ def rfs():
     return render_template('rfs.html')
 
 # RINELE - PSICOLOGA ==============================================================
-def enviar_email(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
+def enviar_email_rinele(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     # PARAMETROS DE EMAIL
     html = f"""<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -52,7 +52,7 @@ def enviar_email(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     email = 'foxtec198@gmail.com'
     senha = 'fwmeylchtupgrmeb'
     server = smtplib.SMTP(host, port)
-    server.ehlo()
+    server.ehlo()   
     server.starttls()
     server.login(email, senha)
     
@@ -65,7 +65,6 @@ def enviar_email(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(html)
     server.sendmail(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
-    server.quit()
 
 @app.route('/rinele/')
 def rinele():
@@ -73,11 +72,11 @@ def rinele():
 
 @app.route('/rinele/enviar/<nome>_<telefone>')
 def enviar(nome, telefone):
-    enviar_email(nome, telefone, 'psicologarinelemazaquatro@hotmail.com')
+    enviar_email_rinele(nome, telefone, 'psicologarinelemazaquatro@hotmail.com')
     return redirect('/rinele')
 
 # CHOPP MANIA =====================================================================
-def enviar_email(nomeForm, emailForm, telForm, dataForm, dataEnvio, emailTo, pedido):
+def enviar_email_choppmania(nomeForm, emailForm, telForm, dataForm, dataEnvio, emailTo, pedido):
     # PARAMETROS DE EMAIL
     html = f"""
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -123,7 +122,6 @@ def enviar_email(nomeForm, emailForm, telForm, dataForm, dataEnvio, emailTo, ped
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(html)
     server.sendmail(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
-    server.quit()
     print(f'Email enviado com sucesso para {emailTo}')
 
 def get_brl():
@@ -144,8 +142,8 @@ def envio_choppmania(nome, email, telefone, data, produto):
     data = data.replace('T', ' ')
     data = now().strptime(data, '%Y-%m-%d %H:%M')
     dataEnvio = now()
-    enviar_email(nome, email, telefone, data, dataEnvio, 'foxtec198@gmail.com', produto)
-    enviar_email(nome, email, telefone, data, dataEnvio, 'contato.choppmania@gmail.com', produto)
+    enviar_email_choppmania(nome, email, telefone, data, dataEnvio, 'foxtec198@gmail.com', produto)
+    enviar_email_choppmania(nome, email, telefone, data, dataEnvio, 'contato.choppmania@gmail.com', produto)
     return redirect('/choppmania/enviado')
 
 @app.route('/choppmania/enviado/')
@@ -195,7 +193,6 @@ def enviar_email_imob(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M'))
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(html)
     server.sendmail(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
-    server.quit()
    
 @app.route('/imob/')
 def homeImob():
