@@ -73,3 +73,8 @@ body, html{
 .loja i{
     color: #00FF64;
 }
+.redes i{
+    text-decoration: none;
+    color: ghostwhite;
+    font-size: 1rem;
+}
