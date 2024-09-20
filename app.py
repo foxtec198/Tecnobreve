@@ -1,13 +1,17 @@
 from flask import Flask, render_template, redirect
 from os import getenv
 from time import strftime as st
-from datetime import datetime as dt
+from datetime import datetime as dt, timezone, timedelta
 import email.message as em
 import smtplib
 from psycopg2 import connect
 
 app = Flask(__name__)
-# conn = connect(host='stately-allowing-snapper.data-1.use1.tembo.io', port='5432', user='postgres', password='H6KAGLThX39kcNNH', database='RDC')
+
+
+def now():
+    tz_brl = timezone(timedelta(hours=-3))
+    return dt.now().astimezone(tz_brl)
 
 # HOME - TECNOBREVE ===============================================================
 @app.route('/')
@@ -40,7 +44,7 @@ def enviar_email(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
             </button>
         </a>
         <hr>
-        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {dt.now().strftime('%Y')} </p>
+        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {now().strftime('%Y')} </p>
     </div>""" 
 
     host = 'smtp.gmail.com'
@@ -98,7 +102,7 @@ def enviar_email(nomeForm, emailForm, telForm, dataForm, dataEnvio, emailTo, ped
             </button>
         </a>
         <hr>
-        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {dt.now().strftime('%Y')} </p>
+        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {now().strftime('%Y')} </p>
     </div>
     """ 
     host = 'smtp.gmail.com'
@@ -129,14 +133,17 @@ def get_brl():
 
 @app.route('/choppmania/')
 def home_cm():
-    barris = sorted(get_brl())
-    return render_template('choppmania.html', barris=barris)
+    global c
+    with connect(host='stately-allowing-snapper.data-1.use1.tembo.io', port='5432', user='postgres', password='H6KAGLThX39kcNNH', database="RDC") as conn:
+        c = conn.cursor()
+        barris = sorted(get_brl())
+        return render_template('choppmania.html', barris=barris)
 
 @app.route('/choppmania/enviar/<nome>_<email>_<telefone>_<data>_<produto>')
 def envio_choppmania(nome, email, telefone, data, produto):
     data = data.replace('T', ' ')
-    data = dt.now().strptime(data, '%Y-%m-%d %H:%M')
-    dataEnvio = dt.now()
+    data = now().strptime(data, '%Y-%m-%d %H:%M')
+    dataEnvio = now()
     enviar_email(nome, email, telefone, data, dataEnvio, 'foxtec198@gmail.com', produto)
     enviar_email(nome, email, telefone, data, dataEnvio, 'contato.choppmania@gmail.com', produto)
     return redirect('/choppmania/enviado')
@@ -167,7 +174,7 @@ def enviar_email_imob(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M'))
             </button>
         </a>
         <hr>
-        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {dt.now().strftime('%Y')} </p>
+        <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {now().strftime('%Y')} </p>
     </div>""" 
 
     host = 'smtp.gmail.com'
