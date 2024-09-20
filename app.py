@@ -7,13 +7,12 @@ import smtplib
 from psycopg2 import connect
 
 app = Flask(__name__)
-conn = connect(host='stately-allowing-snapper.data-1.use1.tembo.io', port='5432', user='postgres', password='H6KAGLThX39kcNNH', database='RDC')
-c = conn.cursor()
+# conn = connect(host='stately-allowing-snapper.data-1.use1.tembo.io', port='5432', user='postgres', password='H6KAGLThX39kcNNH', database='RDC')
 
 # HOME - TECNOBREVE ===============================================================
 @app.route('/')
 def home():
-    return redirect('https://tecnobreve.my.canva.site/portifolio')
+    return render_template('tecnobreve.html')
 
 @app.route('/rfs')
 def rfs():
