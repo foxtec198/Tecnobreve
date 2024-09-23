@@ -25,7 +25,9 @@ def rfs():
 # RINELE - PSICOLOGA ==============================================================
 def enviar_email_rinele(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     # PARAMETROS DE EMAIL
-    html = f"""<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    html = f"""
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <div style="background-color: #006494; padding: 10px; border-radius: 20px; margin: 20px;">
         <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/logoWhite.png?alt=media&token=3d861237-d85f-4c14-83bd-4138f973ecea" width="100" style="margin-left: 10px;">
@@ -79,6 +81,7 @@ def enviar(nome, telefone):
 def enviar_email_choppmania(nomeForm, emailForm, telForm, dataForm, dataEnvio, emailTo, pedido):
     # PARAMETROS DE EMAIL
     html = f"""
+    <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <div style="background-color: #000; padding: 10px; border-radius: 20px; margin: 20px;">
@@ -142,7 +145,7 @@ def envio_choppmania(nome, email, telefone, data, produto):
     data = data.replace('T', ' ')
     data = now().strptime(data, '%Y-%m-%d %H:%M')
     dataEnvio = now()
-    enviar_email_choppmania(nome, email, telefone, data, dataEnvio, 'foxtec198@gmail.com', produto)
+    enviar_email_choppmania(nome, email, telefone, data, dataEnvio, 'ghostlagado@gmail.com', produto)
     enviar_email_choppmania(nome, email, telefone, data, dataEnvio, 'contato.choppmania@gmail.com', produto)
     return redirect('/choppmania/enviado')
 
@@ -153,7 +156,9 @@ def enviado_choppmania():
 # IMOB 4Projetta ==================================================================
 def enviar_email_imob(nome, telefone, emailTo, dataEnvio = st('%d/%m/%Y %H:%M')):
     # PARAMETROS DE EMAIL
-    html = f"""<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    html = f"""
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <div style="border: 2px solid #006494; padding: 10px; border-radius: 20px; margin: 20px;">
         <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/marca.png?alt=media&token=8a902127-2005-40aa-9435-6a56be9f011a" width="100" style="margin-left: 10px;">
@@ -201,7 +206,7 @@ def homeImob():
 @app.route('/imob/enviar/<nome>_<telefone>')
 def enviar_imob(nome, telefone):
     enviar_email_imob(nome, telefone, '4quattroprojetta@gmail.com')
-    # enviar_email_imob(nome, telefone, 'ghostlagado@gmail.com')
+    enviar_email_imob(nome, telefone, 'ghostlagado@gmail.com')
     return redirect('/imob')
 
 # Oficina do Celular ==================================================================
