@@ -1,13 +1,14 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from os import getenv
 from time import strftime as st
 from datetime import datetime as dt, timezone, timedelta
 import email.message as em
 import smtplib
 from psycopg2 import connect
+from static.utils.sma import Email
 
 app = Flask(__name__)
-
+sma = Email()
 
 def now():
     tz_brl = timezone(timedelta(hours=-3))
@@ -215,6 +216,44 @@ def enviar_imob(nome, telefone):
 def homeODC():
     return render_template('oficinadocelular.html')
 
+# MEKA MARKETING DIGITAL ==================================================================
+@app.route('/sma_meka/', methods=['POST','GET'])
+def sma_meka():
+    if request.method == 'POST':
+        nome = request.form['nome']
+        telefone = request.form['tel']
+        email = request.form['email']
+        dataEnvio = now().strftime('%d/%m/%Y %H:%M')
+        
+        html = f"""
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <div style="background-color: #100541; padding: 10px; border-radius: 20px; margin: 20px;">
+            <img src="https://meka-h70c.onrender.com/src/img/logo.png" width="100" style="margin-left: 10px;">
+        </div>
+        <div style="text-align: left; padding: 10px; margin: 20px;">
+            <h1><b>Novo contato!</b></h1>
+            <h4>Você tem um novo contato a ser realizado!</h4>
+            <hr>
+            <p><b>Nome:</b> {nome}</p>
+            <p><b>Telefone:</b> {telefone}</p>
+            <p><b>Email:</b> {email}</p>
+            <p><b>Data do Pedido:</b> {dataEnvio}</p>
+            <a href="https://api.whatsapp.com/send/?phone=55{telefone}">
+                <button style="background: #a7c957; color: #fff; font-size: 16px;"> 
+                    <img src="https://firebasestorage.googleapis.com/v0/b/choppmania-828ed.appspot.com/o/icons8-whatsapp-50.png?alt=media&token=addb7a5a-9cec-4cd3-907b-20ce5be75295" width= "15">
+                    Enviar Mensagem 
+                </button>
+            </a>
+            <hr>
+            <p style="position: fixed; bottom: 10px; color: gray; font-style: italic; margin-top: 20px;">Desenvolvido por Tecnobreve © {now().strftime('%Y')} </p>
+        </div>"""
+
+        sma.enviar('foxtec198@gmail.com', html)
+        sma.enviar('leadsmeka@gmail.com', html)
+        return redirect('https://meka-h70c.onrender.com/enviado')
+    else: return '', 401 
 
 if __name__ == '__main__':
     port = getenv('PORT','8601')
