@@ -220,9 +220,9 @@ def homeODC():
 @app.route('/sma_meka/', methods=['POST','GET'])
 def sma_meka():
     if request.method == 'POST':
-        nome = request.form['nome']
-        telefone = request.form['tel']
-        email = request.form['email']
+        nome = request.args['nome']
+        telefone = request.args['tel']
+        email = request.args['email']
         dataEnvio = now().strftime('%d/%m/%Y %H:%M')
         
         html = f"""
@@ -252,8 +252,8 @@ def sma_meka():
 
         sma.enviar('foxtec198@gmail.com', html)
         sma.enviar('leadsmeka@gmail.com', html)
-        return redirect('https://meka-h70c.onrender.com/enviado')
-    else: return '', 401 
+        return '', 200
+    else: return '', 401
 
 if __name__ == '__main__':
     port = getenv('PORT','8601')
