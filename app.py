@@ -221,8 +221,8 @@ def homeODC():
 def sma_meka():
     if request.method == 'POST':
         nome = request.args['nome']
-        telefone = request.args['tel']
         email = request.args['email']
+        telefone = request.args['tel']
         dataEnvio = now().strftime('%d/%m/%Y %H:%M')
         
         html = f"""
