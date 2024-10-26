@@ -56,7 +56,7 @@ body, html{
     flex-wrap: wrap;
     padding: 5rem;
 }
-.infoTxt .item{
+.item{
     flex-grow: 1;
     flex-basis: 200px;
 }
@@ -239,6 +239,4 @@ footer i{
 .textDivAbout{
     flex: 2;
     min-width: 200px;
-}
-.imgDivAbout{
 }
