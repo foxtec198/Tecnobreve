@@ -1,0 +1,17 @@
+{
+    "name": "Tecnobreve",
+    "theme_color": "#757575",
+    "background_color": "#ff914d",
+    "short_name": "Tecnobreve",
+    "description": "Soluções em informatica",
+    "display_override": [
+      "fullscreen",
+      "browser",
+      "minimal-ui",
+      "window-controls-overlay",
+      "standalone"
+    ],
+    "categories": [
+      "utilities"
+    ]
+  }
