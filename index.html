@@ -3,13 +3,25 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta theme-color="#333">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tecnobreve - Soluções em Informática</title>
+
+  <!-- Css Local -->
   <link rel="stylesheet" href="../src/style/tecnobreve.css">
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- AOS (Animações ao rolar a página) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Favicon  -->
   <link rel="shortcut icon" href="../src/img/tecnobreve/favicon.png" type="image/x-icon">
+
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
 </head>
 
@@ -53,25 +65,25 @@
     <div class="banner">
       <video class="videoIn" src="../src/video/tecnobreve.mp4" autoplay muted loop></video>
       <div class="d-flex flex-column p-4 textDiv">
-        <p class="fs-3 text-center lh-sm">
+        <p data-aos="fade-in" class="fs-3 text-center lh-sm">
           “Uma <span>máquina</span> consegue fazer o trabalho de 50 homens ordinários.
           Nenhuma máquina consegue fazer o trabalho de um homem <b>extraordinário</b>”.
         </p>
-        <p class="fs-6 text-end">
+        <p class="fs-6 text-end" data-aos="fade-up">
           - Elbert Hubbard
         </p>
       </div>
     </div>
   </div>
 
-  <div class="infos">
-    <div class="d-flex gap-2 p-4 flex-wrap">
-      <div class="item">
+  <div class="infos p-5">
+    <div class="d-flex gap-1 py-5 flex-wrap">
+      <div class="item" data-aos="fade-right">
         <h1 class="fs-4">A Empresa:</h1>
         <p class="fs-6">Estamos no mercado a 5 anos, Somos referência quando se trata de
           Desenvolvimento de Apps, Sites, Relatórios e Idêntidades Visuais!</p>
       </div>
-      <div class="item">
+      <div class="item" data-aos="fade-left">
         <h1 class="fs-4">O Negócio:</h1>
         <p class="fs-6">Utilizamos em nossas aplicações Python, HTML5, CSS3, Javascript, Bootstrap, Figma, PowerBI e
           Muito mais!</p>
@@ -106,15 +118,15 @@
     <div class="separator align-self-start p-4">
       <p class="fs-2 text-left">Nossas Empresas</p>
       <div class="separator-p">
-        <div class="liner"></div>
-        <div class="rounded-liner"></div>
-        <div class="rounded-liner"></div>
-        <div class="rounded-liner"></div>
+        <div class="liner" data-aos="fade-right"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
       </div>
     </div>
 
-    <p class="fs-6 text-center">Já atendemos grandes empresas como:</p>
-    <div class="divCarr">
+    <p class="fs-6 text-center" data-aos="fade-down">Já atendemos grandes empresas como:</p>
+    <div class="divCarr" data-aos="fade-down">
       <div id="carEmpresas" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -143,8 +155,7 @@
         </button>
       </div>
     </div>
-    <hr>
-    <div class="divEmp" id="divEmp">
+    <div class="divEmp mt-5" data-aos="fade-up" id="divEmp">
       <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="0">
         <img src="../src/img/logoODC.png" class="empresas">
       </a>
@@ -160,26 +171,26 @@
     </div>
   </div>
   
-  <div class="skillsCont" id="skillsCont">
+  <div class="skillsCont p-5 mt-5" id="skillsCont">
     <div style="height: 100%;"></div>
     <div class="separator">
       <p class="fs-2 text-left">Nossas Skills</p>
       <div class="separator-p">
-        <div class="liner"></div>
-        <div class="rounded-liner"></div>
-        <div class="rounded-liner"></div>
-        <div class="rounded-liner"></div>
+        <div class="liner" data-aos="fade-right"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
       </div>
     </div>
     <div style="height: 100%;"></div>
     <div class="divSkils">
-      <div class="skillCard">
+      <div class="skillCard" data-aos="fade-down">
         <p>Python - Full Stack</p>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar pgBG" style="width: 90%; background: #FF914D;">90%</div>
         </div>    
       </div>
-      <div class="skillCard">
+      <div class="skillCard" data-aos="fade-up">
         <p>Sites, Landingpages, WebApps e Pixels</p>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 60%; background: #FF914D;">60%</div>
@@ -187,13 +198,13 @@
       </div>
     </div>
     <div class="divSkils">
-      <div class="skillCard">
+      <div class="skillCard" data-aos="fade-up">
         <p>Idêntidade Visual</p>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 75%; background: #FF914D;">75%</div>
         </div>    
       </div>
-      <div class="skillCard">
+      <div class="skillCard" data-aos="fade-down">
         <p>Analise de Dados</p>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 40%; background: #FF914D;">40%</div>
@@ -205,14 +216,17 @@
 
   <div class="d-flex flex-column align-items-center p-4 projs" id="projs">
     <div class="separator">
-      <p class="fs-2 text-left">Nossos Projetos</p>
+      <p class="fs-2 text-left" data-aos="fade-up">Nossos Projetos</p>
       <div class="separator-p">
-        <div class="liner"></div>
-        <div class="rounded-liner"></div>
-        <div class="rounded-liner"></div>
-        <div class="rounded-liner"></div>
+        <div class="liner" data-aos="fade-right"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
       </div>
     </div>
+
 
     <div class="d-flex flex-column">
       <div class="d-flex flex-row justify-content-around lineProj" style="width: 100%; gap: 20px;">
@@ -374,6 +388,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="d-flex p-4 flex-column align-items-center" style="background: #000d0a;" id="parcerias">
@@ -587,6 +602,12 @@
     </div>
   </footer>
 
+  <!-- Bootstrap Js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- AOS Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init()</script>
+
 </body>
 </html>

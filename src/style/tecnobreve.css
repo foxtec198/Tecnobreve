@@ -1,6 +1,6 @@
 body, html{ 
     width: 100%;
-    height: 100%;
+    overflow-x: hidden;
     padding: 0;
     margin: 0;
     --laranja: #FF914D;
