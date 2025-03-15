@@ -1,8 +1,6 @@
 body, html{ 
     width: 100%;
     overflow-x: hidden;
-    padding: 0;
-    margin: 0;
     --laranja: #FF914D;
     --preto: #000;
     --cinza: #737373;
