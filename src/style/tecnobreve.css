@@ -116,18 +116,16 @@ body, html{
     height: 100%;
 }
 .divSkils{
-    margin-left: 15%;
-    margin-right: 15%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 2rem;
-    gap: 10px;
+    padding: 1.2rem;
+    gap: 40px;
     flex-wrap: wrap;
 }
 .skillCard{
     flex-grow: 1;
-    flex-basis: 300px;
+    flex-basis: 400px;
 }
 footer div{
     align-items: center;
@@ -141,7 +139,7 @@ footer i{
     color: white;
 }
 .separator{
-    align-self: center;
+    align-self: flex-start;
 }
 .separator-p{
     display: flex;

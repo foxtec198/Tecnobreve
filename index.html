@@ -61,7 +61,8 @@
     </div>
   </nav>
 
-  <div class="d-flex flex-column justify-content-center">
+  <!-- Hero section -->
+  <section class="d-flex flex-column justify-content-center">
     <div class="banner">
       <video class="videoIn" src="../src/video/tecnobreve.mp4" autoplay muted loop></video>
       <div class="d-flex flex-column p-4 textDiv">
@@ -74,9 +75,10 @@
         </p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="infos p-5">
+  <!-- Info Section -->
+  <section class="infos p-5">
     <div class="d-flex gap-1 py-5 flex-wrap">
       <div class="item" data-aos="fade-right">
         <h1 class="fs-4">A Empresa:</h1>
@@ -112,9 +114,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="empCont" id="empCont">
+  <!-- Builds Section -->
+  <section class="empCont" id="empCont">
     <div class="separator align-self-start p-4">
       <p class="fs-2 text-left">Nossas Empresas</p>
       <div class="separator-p">
@@ -125,7 +128,15 @@
       </div>
     </div>
 
-    <p class="fs-6 text-center" data-aos="fade-down">Já atendemos grandes empresas como:</p>
+    <p class="fs-5 text-center" data-aos="fade-down">Já atendemos grandes empresas como:</p>
+    <marquee direction="left" class="w-100">
+      <div class="d-flex flex-row gap-5 p-4">
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="0"><img src="../src/img/logoODC.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="1"><img src="../src/img/LG.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="2"><img src="../src/img/logo_quattroP.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="3"><img src="../src/img/logo-cmp.png" class="empresas"></a>
+      </div>
+    </marquee>
     <div class="divCarr" data-aos="fade-down">
       <div id="carEmpresas" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -155,26 +166,13 @@
         </button>
       </div>
     </div>
-    <div class="divEmp mt-5" data-aos="fade-up" id="divEmp">
-      <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="0">
-        <img src="../src/img/logoODC.png" class="empresas">
-      </a>
-      <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="1">
-        <img src="../src/img/LG.png" class="empresas">
-      </a>
-      <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="2">
-        <img src="../src/img/logo_quattroP.png" class="empresas">
-      </a>
-      <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="3">
-        <img src="../src/img/logo-cmp.png" class="empresas">
-      </a>
-    </div>
-  </div>
+    
+  </section>
   
-  <div class="skillsCont p-5 mt-5" id="skillsCont">
-    <div style="height: 100%;"></div>
+  <!-- Skill Section -->
+  <section class="skillsCont p-4 mt-5" id="skillsCont">
     <div class="separator">
-      <p class="fs-2 text-left">Nossas Skills</p>
+      <p class="fs-2 text-start">Nossas Skills</p>
       <div class="separator-p">
         <div class="liner" data-aos="fade-right"></div>
         <div class="rounded-liner" data-aos="fade-left"></div>
@@ -182,7 +180,9 @@
         <div class="rounded-liner" data-aos="fade-left"></div>
       </div>
     </div>
-    <div style="height: 100%;"></div>
+    <span class="fs-5 fw-bold text-center m-5">Algumas de nossas skills e linguagens que trabalhamos, atendemos uma ampla gama de serviços, mas nosso foco são nas skills abaixo!</span>
+
+
     <div class="divSkils">
       <div class="skillCard" data-aos="fade-down">
         <p>Python - Full Stack</p>
@@ -197,7 +197,7 @@
         </div>    
       </div>
     </div>
-    <div class="divSkils">
+    <div class="divSkils mb-5">
       <div class="skillCard" data-aos="fade-up">
         <p>Idêntidade Visual</p>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -211,10 +211,10 @@
         </div>    
       </div>
     </div>
-    <div style="height: 100%;"></div>
-  </div>
+  </section>
 
-  <div class="d-flex flex-column align-items-center p-4 projs" id="projs">
+  <!-- Project Section -->
+  <section class="d-flex flex-column align-items-center p-4 projs" id="projs">
     <div class="separator">
       <p class="fs-2 text-left" data-aos="fade-up">Nossos Projetos</p>
       <div class="separator-p">
@@ -226,9 +226,10 @@
         <div class="rounded-liner" data-aos="fade-left"></div>
       </div>
     </div>
+    <span class="fs-5 fw-bold text-center m-5">Abaixo alguns de nossos projetos e trabalho já realizados!!!</span>
 
 
-    <div class="d-flex flex-column">
+    <!-- <div class="d-flex flex-column">
       <div class="d-flex flex-row justify-content-around lineProj" style="width: 100%; gap: 20px;">
         <div class="card cardItem" style="width: 18rem;">
           <img src="https://authwa.readthedocs.io/pt/latest/assets/robot.png" class="card-img-top imgCard">
@@ -387,11 +388,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-  </div>
+  </section>
 
-  <div class="d-flex p-4 flex-column align-items-center" style="background: #000d0a;" id="parcerias">
+  <!-- Parcerias -->
+  <section class="d-flex p-4 flex-column align-items-center" style="background: #000d0a;" id="parcerias">
     <div class="separator">
       <p class="fs-2 text-left">Parcerias</p>
       <div class="separator-p">
@@ -535,9 +537,10 @@
         <a href="https://hubbix.onrender.com/" class="btn btn-success btn-lg"> Saiba Mais </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="sobre" id="sobre">
+  <!-- About Section -->
+  <section class="sobre" id="sobre">
     <div class="separato align-self-start p-4">
       <p class="fs-2 text-left">Sobre Nós</p>
       <div class="separator-p">
@@ -588,8 +591,9 @@
         A entrega de desenvolvimento de sistemas é uma etapa crucial no ciclo de vida de um projeto de software. Essa fase envolve a apresentação de funcionalidades implementadas aos stakeholders, garantindo que os requisitos iniciais foram atendidos. Durante as entregas, é essencial realizar testes rigorosos para validar a qualidade e a performance do sistema. Além disso, a documentação clara e acessível é fundamental para facilitar a manutenção e o entendimento do sistema por toda a equipe. Uma boa prática é coletar feedback dos usuários, o que pode levar a melhorias contínuas e a um produto final mais alinhado às necessidades do cliente. O sucesso das entregas também depende da comunicação efetiva entre as partes envolvidas, assegurando que todos estejam alinhados em relação ao progresso e aos próximos passos do projeto.
       </p>
     </div>
-  </div>
+  </section>
 
+  <!-- Footer Info -->
   <footer>
     <hr>
     <div class="d-flex justify-content-around">
