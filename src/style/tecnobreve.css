@@ -10,6 +10,11 @@ body, html{
     height: 5rem;
 }
 
+.bg-orange{
+    background: var(--laranja);
+    color: #fff;
+}
+
 .banner{
     width: 100%;
     height: 450px;
