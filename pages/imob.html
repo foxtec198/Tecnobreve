@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- CSS LOCAL -->
     <link rel="stylesheet" href="../src/style/imob.css">
-    <link rel="icon" href="../src/icon/fav4quattro.png">
+    <link rel="icon" href="../src/img/4quattro/fav4quattro.png">
     <title>Imobiliária 4 Quattro Projetta</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
         src="https://www.facebook.com/tr?id=317314770970805&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Meta Pixel Code -->
-    <img src="../src/img/logo_quattroP.png" alt="logo" class="logo">
+    <img src="../src/img/4quattro/logo_quattroP.png" alt="logo" class="logo">
     
     <div class="redes">
         <a class="redesSociais" href="https://4projetta.com.br/"><i class="bi bi-globe"></i></a>
@@ -59,8 +59,7 @@
                     <p> <i class="bi bi-egg-fried"></i> - Diversas Opções Gastronômicas</p>
                     <p> <i class="bi bi-balloon-fill"></i> - Espaço Kids</p>
                     <p> <i class="bi bi-cpu-fill"></i> - Espaço Moderno e Completo</p>
-                    
-                    <button class="btn btn-outline-dark" id="saibaMais">Saiba mais <i class="bi bi-box-arrow-up-right"></i></button>
+                    <a href="#cont2" class="btn btn-outline-dark" id="saibaMais">Saiba mais<i class="bi bi-box-arrow-up-right"></i></a>
                 </div>
 
             </div>
@@ -100,7 +99,7 @@
         <div class="cont2" id="cont2">
             <p> Este empreendimento promete ser um sucesso em Cambé. Não perca essa oportunidade!
             Deixe seu contato para agendar uma <b>visita!</b></p>
-            <div>
+            <form id="form">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nome" placeholder="Meu nome completo" autocomplete="name">
                     <label for="nome">Nome Completo</label>
@@ -110,9 +109,9 @@
                     <label for="tel">Telefone</label>
                 </div>
                 <hr>
-                    <button class="btn btn-lg btn1" id="btnEnviar"><i class="bi bi-envelope-arrow-up-fill"></i> Enviar dados </button>
-                    <a href="https://api.whatsapp.com/send?phone=554333264044"> <button class="btn btn-lg btn2"> <i class="bi bi-whatsapp"></i> Entre em contato</button></a>
-            </div>
+                    <button class="btn btn-lg btn1" id="btnEmail" type="submit"><i class="bi bi-envelope-arrow-up-fill"></i> Enviar dados </button>
+                    <a target="_" href="https://api.whatsapp.com/send?phone=554333264044" class="btn btn-lg btn2"><i class="bi bi-whatsapp"></i> Entre em contato</a>
+            </form>
         </div>
         <div class="rdp">
             <p><i class="bi bi-geo-alt-fill"></i> Localizado no Bairro Jardim Santo Amaro - Cambé Pr.</p>
@@ -125,7 +124,7 @@
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <img src="../src/icon/fav4quattro.png" class="imgtoast">
+                <img src="../src/img/4quattro/fav4quattro.png" class="imgtoast">
                 <strong class="me-auto">Dados Enviados!</strong>
                 <small>0 min atrás</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -135,24 +134,8 @@
             </div>
         </div>
     </div>
-    <!-- SCRIPTSSSS -->
-    <script>
-        const toastTrigger = document.getElementById('btnEnviar')
-        const toastLiveExample = document.getElementById('liveToast')
 
-        if (toastTrigger) {
-            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-            toastTrigger.addEventListener('click', () => {
-                toastBootstrap.show()
-
-                const nome = document.getElementById('nome').value
-                const telefone = document.getElementById('tel').value
-                document.location = 'enviar/' + nome + '_' + telefone
-        })
-        }
-        document.getElementById('saibaMais').onclick = function(){
-            document.location = '#cont2'
-        }
-    </script>
+    <!-- SCRIPTS -->
+    <script src="../src/js/imob.js"></script>
 </body>
 </html>

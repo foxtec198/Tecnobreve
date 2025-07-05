@@ -81,6 +81,10 @@ body, html{
     background: #333;
 
 }
+.bdg i{
+    font-weight: 700;
+    font-size: 1rem;
+}
 .carDivv{
     max-width: 100%;
 
